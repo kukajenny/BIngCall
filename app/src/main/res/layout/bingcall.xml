@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.zjp.bingcall.SlidingLayout.ThreeDSlidingLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slidingLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <RelativeLayout
+        android:id="@+id/menu"
+        android:layout_width="270dip"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/yellow"
+        android:visibility="invisible" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/bingcall_exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="退出登陆"
+                android:background="@color/maincolor"/>
+
+            <Button
+                android:id="@+id/bingcall_contact_import"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="导入通讯录"
+                android:background="@color/maincolor"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="320dip"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:background="@color/background">
+
+        <include layout="@layout/toolbar"></include>
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#ffffff"
+            android:dividerHeight="1dp"
+            android:background="@color/background"
+            >
+
+        </ListView>
+    </LinearLayout>
+
+    <com.example.zjp.bingcall.SlidingLayout.Image3dView
+        android:id="@+id/image_3d_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:visibility="invisible" />
+
+</com.example.zjp.bingcall.SlidingLayout.ThreeDSlidingLayout>

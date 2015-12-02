@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        style="@style/TextView.Nickname"
+        android:id="@+id/nickname" />
+
+    <LinearLayout
+        android:layout_below="@+id/nickname"
+        android:id="@+id/interestsPrimary"
+        style="@style/LinearLayout.Interests">
+        <TextView
+            android:id="@+id/textview_page_telnum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="45dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_below="@+id/interestsPrimary"
+        android:id="@+id/interestsSecondary"
+        android:layout_marginTop="5dp"
+        style="@style/LinearLayout.Interests"
+        >
+
+        <Button
+            android:id="@+id/button_page_modify"
+            style="@style/TextView.Interest"
+            android:text="修改"/>
+
+        <Button
+            android:id="@+id/button_page_delete"
+            style="@style/TextView.Interest"
+            android:text="删除"/>
+    </LinearLayout>
+
+</RelativeLayout>

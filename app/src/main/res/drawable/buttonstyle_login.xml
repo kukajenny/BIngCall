@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">//定义当button 处于pressed 状态时的形态。
+        <shape>
+            <gradient  android:startColor="#0000ff" />
+            <stroke   android:width="2dp" android:color="#000000" />
+            <corners android:radius="5dp" />
+            <padding android:left="10dp" android:top="10dp"
+                android:bottom="10dp" android:right="10dp"/>
+        </shape>
+    </item>
+    <item android:state_focused="true">//定义当button获得 focus时的形态
+        Log.d("dfd","dfd1");
+        <shape>
+            <gradient android:startColor="#aad100"/>
+            <stroke android:width="2dp" android:color="#000000"/>
+            <corners android:radius="8dp" />
+            <padding android:left="10dp" android:top="10dp"
+                android:bottom="10dp" android:right="10dp"/>
+        </shape>
+    </item>
+    <item android:state_pressed="true">//定义当button获得 focus时的形态
+        <shape>
+            <gradient android:startColor="@color/lesscolor"/>//按钮点击显示
+            <stroke android:width="2dp" android:color="#333333"/>
+            <corners android:radius="8dp" />
+            <padding android:left="10dp" android:top="10dp"
+                android:bottom="10dp" android:right="10dp"/>
+        </shape>
+    </item>
+    <item android:state_enabled="true"
+        android:drawable="@color/maincolor">//按钮初始显示
+        <shape>
+
+            <gradient android:color="#E8F5E9"/>
+            <stroke android:width="2dp" android:color="#0097A7"/>
+            <padding android:left="10dp" android:top="10dp"
+                android:bottom="10dp" android:right="10dp"/>
+        </shape>
+
+    </item>
+</selector>

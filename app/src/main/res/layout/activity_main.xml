@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+<include layout="@layout/toolbar"></include>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="140dp"
+        android:layout_height="120dp"
+        android:src="@drawable/logo_bingcall"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+
+        />
+    <LinearLayout
+        android:id="@+id/login_div"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+        <!-- 账号 -->
+        <EditText
+            android:id="@+id/main_username"
+            android:layout_width="fill_parent"
+            android:layout_margin="5dp"
+            android:hint="用户名"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/textcolor"
+            android:textColor="@color/textcolor"></EditText>
+        <!--android:singleLine="true"-->
+        <EditText
+            android:id="@+id/main_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:password="true"
+            android:layout_margin="5dp"
+            android:singleLine="true"
+            android:hint="密码"
+            android:inputType="textPassword"
+            android:textColorHint="@color/textcolor"
+            android:textColor="@color/textcolor"/>
+        <!-- 登录button -->
+        <CheckBox
+            android:id="@+id/rembmberCheckBox"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="记住账号"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:textColor="@color/textcolor"
+            />
+        <Button
+            android:id="@+id/signin_button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="5dp"
+            android:text="登陆"
+            android:background="@drawable/buttonstyle_login"
+            android:textColor="@color/textcolor"
+            ></Button>
+        //android:background="@drawable/blue_button" />
+    </LinearLayout>
+
+</LinearLayout>

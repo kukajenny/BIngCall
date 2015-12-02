@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <!--<LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/listitem_left_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="sdfsdf"/>
+    </LinearLayout>-->
+    <ImageButton
+        android:id="@+id/listitem_left_imagebutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="@color/background"
+        android:padding="20dp"
+        />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#fff"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"></LinearLayout>
+    <ImageButton
+        android:id="@+id/listitem_right_imagebutton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:background="@color/background"
+        android:padding="20dp"
+        />
+    <!--<LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/listitem_right_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="fdgdg"/>
+    </LinearLayout>-->
+</LinearLayout>

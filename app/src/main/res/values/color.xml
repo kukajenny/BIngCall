@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="maincolor" type="color">#f3d443</item>
+    <item name="lesscolor" type="color">#f8da4d</item>
+    <item name="deepcolor" type="color">#e8c937</item>
+    <item name="background" type="color">#f4e6a7</item>
+    <item name="textcolor" type="color">#ffffff</item>
+
+    <color name="select_color1">#F4B63E</color>
+    <color name="select_color2">#7067E2</color>
+    <color name="select_color3">#00C2EB</color>
+    <color name="select_color4">#983697</color>
+    <color name="select_color5">#7b9b9a</color>
+    <color name="select_color6">#ff8c6a</color>
+    <color name="select_color7">#ad4524</color>
+    <color name="select_color8">#488632</color>
+    <color name="select_color9">#0b7391</color>
+
+    <color name="selected_color1">#c18208</color>
+    <color name="selected_color2">#281fa0</color>
+    <color name="selected_color3">#00677D</color>
+    <color name="selected_color4">#6b166a</color>
+    <color name="selected_color5">#466d6c</color>
+    <color name="selected_color6">#ad4f33</color>
+    <color name="selected_color7">#82290d</color>
+    <color name="selected_color8">#255115</color>
+    <color name="selected_color9">#013747</color>
+
+    <color  name = "transparent" > #9000 </color >
+</resources>
