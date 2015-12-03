@@ -179,6 +179,7 @@ private CircleButton circleButton;
                 }
             });
             dialog.show();
+            return;
         }
 
         string_add_name = add_name.getText().toString();
@@ -196,6 +197,7 @@ private CircleButton circleButton;
                     }
             );
             dialog.show();
+            return;
         }
       /*  try{
 
