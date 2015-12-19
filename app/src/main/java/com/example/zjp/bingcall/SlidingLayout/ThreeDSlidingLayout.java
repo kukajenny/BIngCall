@@ -172,7 +172,7 @@ public class ThreeDSlidingLayout extends RelativeLayout implements View.OnTouchL
      */
     public void scrollToLeftLayout() {
         image3dView.clearSourceBitmap();
-        new ScrollTask().execute(-10);
+        new ScrollTask().execute(-30);
     }
 
     /**
@@ -180,7 +180,7 @@ public class ThreeDSlidingLayout extends RelativeLayout implements View.OnTouchL
      */
     public void scrollToRightLayout() {
         image3dView.clearSourceBitmap();
-        new ScrollTask().execute(10);
+        new ScrollTask().execute(30);
     }
 
     /**

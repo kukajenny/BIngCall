@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText password;
     private CheckBox pass;
     private SharedPreferences pref;
-    private final int CHOOSE_PICTURE=1;
-    private ImageView imgShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         pref= PreferenceManager.getDefaultSharedPreferences(this);
         pass=(CheckBox)findViewById(R.id.rembmberCheckBox);
 
-        boolean isremember=pref.getBoolean("rembmbered",false);
+        boolean isremember=pref.getBoolean("rembmbered", false);
 
         Intent intent = getIntent();
         String data = intent.getStringExtra("data");
@@ -67,21 +65,6 @@ public class MainActivity extends AppCompatActivity {
             editor.commit();
         }
 
-        boolean nofirst=pref.getBoolean("notfirst",false);
-        if(isremember){
-            if(data==null){
-                String account=pref.getString("account","");
-                String passwordtext=pref.getString("password","");
-                username.setText(account);
-                password.setText(passwordtext);
-                pass.setChecked(true);
-                Intent intent1=new Intent(MainActivity.this,Bingcall.class);
-                startActivity(intent1);
-                if(nofirst)MainActivity.this.finish();
-            }
-
-
-        }
 
         Button button=(Button)findViewById(R.id.signin_button);
         button.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
                         editor.putBoolean("rembmbered", true);
                         editor.putString("account", account);
                         editor.putString("password", passwordtext);
-                        editor.putBoolean("notfirst",true);
                     } else {
                         editor.clear();
                     }
@@ -124,6 +106,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        if(isremember){
+            if(data==null){
+                String account=pref.getString("account","");
+                String passwordtext=pref.getString("password","");
+                username.setText(account);
+                password.setText(passwordtext);
+                pass.setChecked(true);
+                Intent intent1=new Intent(MainActivity.this,Bingcall.class);
+                startActivity(intent1);
+            }
+        }
+
     }
 
 
@@ -131,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 

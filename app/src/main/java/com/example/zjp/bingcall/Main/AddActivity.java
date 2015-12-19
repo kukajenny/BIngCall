@@ -60,19 +60,14 @@ public class AddActivity extends AppCompatActivity {
     private Intent return_intent;
     private AlertDialog.Builder builder;
     boolean flag=false;
-    private ContentValues values;
     int save_color;
     Bitmap save_bitmap;
-
-private CircleButton circleButton;
+    private CircleButton circleButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
-
         init();
-
-
     }
 
 
@@ -100,7 +95,6 @@ private CircleButton circleButton;
         actionbar.setDisplayHomeAsUpEnabled(true);
 
         return_intent = new Intent();
-        values = new ContentValues();
         save_color=getResources().getColor(R.color.select_color1);
 
         imageButton = (ImageButton)findViewById(R.id.add_people);
@@ -134,13 +128,13 @@ private CircleButton circleButton;
         circleButton = (CircleButton)findViewById(R.id.circlebutton1);
         final ColorPickerDialog colorPickerDialog = new ColorPickerDialog();
         final Resources resources = getResources();
-        colorPickerDialog.initialize(R.string.dialog_title, new int[]{resources.getColor(R.color.select_color1),resources.getColor(R.color.select_color2),resources.getColor(R.color.select_color3),resources.getColor(R.color.select_color4),resources.getColor(R.color.select_color5),resources.getColor(R.color.select_color6),resources.getColor(R.color.select_color7),resources.getColor(R.color.select_color8),resources.getColor(R.color.select_color9),}, Color.YELLOW, 3, 2);
+        colorPickerDialog.initialize(R.string.dialog_title, new int[]{resources.getColor(R.color.select_color1), resources.getColor(R.color.select_color2), resources.getColor(R.color.select_color3), resources.getColor(R.color.select_color4), resources.getColor(R.color.select_color5), resources.getColor(R.color.select_color6), resources.getColor(R.color.select_color7), resources.getColor(R.color.select_color8), resources.getColor(R.color.select_color9),}, Color.YELLOW, 3, 2);
         colorPickerDialog.setOnColorSelectedListener(new ColorPickerSwatch.OnColorSelectedListener() {
 
             @Override
             public void onColorSelected(int color) {
                 circleButton.setColor(color);
-                save_color=color;
+                save_color = color;
 
             }
         });
@@ -155,9 +149,47 @@ private CircleButton circleButton;
             }
         });
 
+        Intent getintent=getIntent();
+            String name=getintent.getStringExtra("name");
+            String number=getintent.getStringExtra("number");
+            Bitmap bitmap=getintent.getParcelableExtra("bitmap");
+            int color=getintent.getIntExtra("background", 0);
+            add_name.setText(name);
+            add_num.setText(number);
+            if(bitmap!=null){
+                imageButton.setImageBitmap(getbitmap(bitmap));
+                save_bitmap=bitmap;
+                flag=true;
+            }
+            if(color!=0){
+                circleButton.setColor(color);
+                save_color=color;
+            }
+
+
+
+
+
     }
 
+    public Bitmap getbitmap(Bitmap bitmap){
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
 
+        //放大為1.2倍
+        float screenWidth  = getWindowManager().getDefaultDisplay().getWidth();		// 屏幕宽（像素，如：480px）
+        float screenHeight = getWindowManager().getDefaultDisplay().getHeight();		// 屏幕高（像素，如：800p）
+        Log.d("screen",screenWidth+"");
+        float scaleWidth = screenWidth/2/width;
+        float scaleHeight = screenWidth/2/width;
+
+        // 取得想要缩放的matrix參數
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        // 得到新的圖片
+        Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix,true);
+        return newbm;
+    }
     public void save_people(){
         if(!flag){
             AlertDialog.Builder dialog = new AlertDialog.Builder(AddActivity.this);
@@ -211,28 +243,16 @@ private CircleButton circleButton;
             Log.d("AddActivity", "yes");
             Toast.makeText(AddActivity.this, "保存成功", Toast.LENGTH_SHORT).show();
 
-            PeopleDatabaseHelper dbhelper = new PeopleDatabaseHelper(this);
-            SQLiteDatabase db = dbhelper.getWritableDatabase();
-            values.put("color", save_color);
-            values.put("num",string_add_num);
-            values.put("name",string_add_name);
-            values.put("picture",getPicture(save_bitmap));
-            db.insert("connect_people", null, values);
-            Log.d("abccc","yes");
+
             AddActivity.this.finish();
         }
 
+
     }
 
-    private byte[] getPicture(Bitmap bitmap) {//使bitmap转换成二进制存储在数据库中
-        if(bitmap == null) {
-            return null;
-        }
 
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, os);
-        return os.toByteArray();
-    }
+
+
 
 
 
@@ -300,27 +320,7 @@ private CircleButton circleButton;
                     break;
                 case Get_picture:
                     Bitmap bitmap = data.getParcelableExtra("data");
-
-                    //轉換為圖片指定大小
-                    //獲得圖片的寬高
-                    int width = bitmap.getWidth();
-                    int height = bitmap.getHeight();
-
-                    //放大為1.2倍
-                    float screenWidth = getWindowManager().getDefaultDisplay().getWidth();        // 屏幕宽（像素，如：480px）
-                    float screenHeight = getWindowManager().getDefaultDisplay().getHeight();        // 屏幕高（像素，如：800p）
-                    Log.d("screen", screenWidth + "");
-                    float scaleWidth = screenWidth / 2 / width;
-                    float scaleHeight = screenWidth / 2 / width;
-
-                    // 取得想要缩放的matrix參數
-                    Matrix matrix = new Matrix();
-                    matrix.postScale(scaleWidth, scaleHeight);
-                    // 得到新的圖片
-                    Bitmap newbm = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-
-                    //重新載入 imageView
-                    imageButton.setImageBitmap(newbm);
+                    imageButton.setImageBitmap(getbitmap(bitmap));
                     save_bitmap = bitmap;
                     //return_intent.putExtras(data);
                     flag = true;

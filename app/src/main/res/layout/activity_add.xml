@@ -27,7 +27,6 @@
             android:id="@+id/circlebutton1"
             android:layout_width="65dip"
             android:layout_height="65dip"
-            android:src="@drawable/pick1"
             app:cb_color="@color/select_color1"
             app:cb_pressedRingWidth="8dip" />
     </RelativeLayout>

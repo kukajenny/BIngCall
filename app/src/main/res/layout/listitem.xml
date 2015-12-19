@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    android:descendantFocusability="blocksDescendants"
+    >
 
     <!--<LinearLayout
         android:layout_width="0dp"
@@ -23,6 +25,8 @@
         android:layout_weight="10"
         android:background="@color/background"
         android:padding="20dp"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
         />
     <LinearLayout
         android:layout_width="0dp"
@@ -38,6 +42,9 @@
         android:layout_weight="10"
         android:background="@color/background"
         android:padding="20dp"
+        android:descendantFocusability="blocksDescendants"
+        android:focusable="false"
+
         />
     <!--<LinearLayout
         android:layout_width="0dp"

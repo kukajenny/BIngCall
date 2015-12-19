@@ -24,7 +24,7 @@
     </LinearLayout>
 
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_below="@+id/interestsPrimary"
         android:id="@+id/interestsSecondary"
         android:layout_marginTop="5dp"
@@ -40,6 +40,6 @@
             android:id="@+id/button_page_delete"
             style="@style/TextView.Interest"
             android:text="删除"/>
-    </LinearLayout>
+    </LinearLayout>-->
 
 </RelativeLayout>

@@ -11,20 +11,18 @@ import java.util.List;
  */
 public class Listitem {
     private String callnumber,name;
-    private Bitmap bitmap;
+    private Bitmap bitmap,lisbitmap;
     private int background;
-    int imageid;
+    int id;
 
-    public int getImageid() {
-        return imageid;
-    }
 
-    public Listitem(String callnumber,String name,Bitmap bitmap,int background){
+    public Listitem(String callnumber,String name,Bitmap lisbitmap,Bitmap bitmap,int background,int id){
         this.callnumber=callnumber;
         this.name=name;
-        //this.imageid=imageid;
         this.background=background;
         this.bitmap=bitmap;
+        this.lisbitmap=lisbitmap;
+        this.id=id;
     }
 
     public String getCallnumber() {
@@ -35,11 +33,16 @@ public class Listitem {
         return bitmap;
     }
 
+    public Bitmap getLisbitmap() {
+        return lisbitmap;
+    }
+
     public String getName() {
         return name;
     }
     public int getBackground() {
         return background;
     }
+    public int getId(){return id;}
 
 }
